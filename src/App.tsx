@@ -8,9 +8,12 @@ function App() {
             <Title>Styled-components <span>.attrs</span> method</Title>
 
             <Form>
-                <Field/>
-                <Field/>
-                <Field/>
+                <Field type={"password"}/>
+                <Field type={"checkbox"}/>
+                <Field type={"radio"}/>
+                <Field type={"range"}/>
+                <Checkbox/>
+                <Field />
             </Form>
         </div>
     );
@@ -32,9 +35,22 @@ const Form = styled.form`
   max-width: 500px;
 `;
 
-const Field = styled.input`
+const Field = styled.input.attrs(()=>({
+    placeholder: "Type something"
+}))`
   padding: 5px 15px;
   margin: 10px 0;
   width: 100%;
   font-size: 1rem;
 `;
+
+const Checkbox = styled.input.attrs(()=>{
+    return {
+        type: "checkbox"
+    }
+})`
+    padding: 5px 15px;
+    margin: 10px 0;
+    width: 100%;
+    font-size: 1rem;
+`
