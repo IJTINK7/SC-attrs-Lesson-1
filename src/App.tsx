@@ -8,8 +8,8 @@ function App() {
             <Title>Styled-components <span>.attrs</span> method</Title>
 
             <Form>
-                <Field type={"password"}/>
-                <Field type={"checkbox"}/>
+                <Field type={"password"} placeholder={"Type password"}/>
+                <Field type={"checkbox"} title={"Yo"}/>
                 <Field type={"radio"}/>
                 <Field type={"range"}/>
                 <Checkbox/>
@@ -35,8 +35,9 @@ const Form = styled.form`
   max-width: 500px;
 `;
 
-const Field = styled.input.attrs(()=>({
-    placeholder: "Type something"
+const Field = styled.input.attrs((props)=>({
+    placeholder: props.placeholder || "Type something",
+    title: props.title || "password"
 }))`
   padding: 5px 15px;
   margin: 10px 0;
